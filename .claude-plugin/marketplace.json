@@ -1,0 +1,30 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "daoquadrado",
+  "version": "1.0.0",
+  "description": "Skills de entrega de software (story, spec, plan, execute, bug) e as skills AI-First de produto (afpm, afpb).",
+  "owner": { "name": "btfonseca1905" },
+  "plugins": [
+    {
+      "name": "delivery-workflow",
+      "displayName": "Delivery Workflow",
+      "description": "Skills genéricas de entrega de software: story, spec, plan, execute e bug.",
+      "source": "./delivery-workflow",
+      "category": "development"
+    },
+    {
+      "name": "afpm",
+      "displayName": "AI-First Product Manager",
+      "description": "Skills de product management: personas sintéticas, entrevistas, insights, crítica de spec e planos de exposição. Origem: alaimo-labs/ai-first-skills (CC BY-SA 4.0).",
+      "source": "./afpm",
+      "category": "product-management"
+    },
+    {
+      "name": "afpb",
+      "displayName": "AI-First Product Builder",
+      "description": "Skills de product builder: hipóteses falsificáveis e planos de exposição. Origem: alaimo-labs/ai-first-skills (CC BY-SA 4.0).",
+      "source": "./afpb",
+      "category": "product-management"
+    }
+  ]
+}

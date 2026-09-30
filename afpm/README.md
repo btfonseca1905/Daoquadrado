@@ -1,0 +1,95 @@
+# afpm — AI-First Product Manager
+
+Agent skills for discovery and validation with synthetic users. Companion plugin for the [AI-First Product Manager](https://alaimolabs.com/es/courses/ai-first-product-manager) program by Alaimo Labs.
+
+## Overview
+
+This plugin gives your coding agent a product-discovery toolkit: frame opportunities before choosing solutions, compare solution alternatives against the evidence, create synthetic personas, interview them, extract insights, run critique panels over your specs, and slice features into exposure plans. It also bridges to real research: design interview guides and surveys, analyze the results, and derive evidence-based personas from the patterns. All artifacts are plain markdown files in your repo under `product/` — no external services.
+
+Content is written in English; all deliverables come out in the language you work in.
+
+## Install
+
+From the `ai-first-skills` marketplace in Claude Code:
+
+```
+/plugin install afpm
+```
+
+The plugin also ships a portable [Agent Plugins](https://agent-plugins.org) manifest, so compatible clients (Cursor, VS Code, GitHub Copilot, ChatGPT & Codex, Kiro, OpenClaw, Hermes) can load it too — see the [repo README](../README.md#other-clients-portable-agent-plugins-format) for per-client instructions.
+
+## Workflows
+
+User-invoked skills — you trigger them as slash commands; they never auto-load.
+
+| Workflow             | What it does                                                  |
+| -------------------- | ------------------------------------------------------------- |
+| `/start-product`     | Bootstrap `product/overview.md`: mode, context, sponsor (internal), ranked and tagged unverified beliefs |
+| `/frame-opportunity` | Frame a problem for a segment — signals, beliefs, research agenda — before any solution |
+| `/research-market`   | Secondary research/benchmarking, every claim provenance-tagged |
+| `/generate-personas` | Generate a diverse set of synthetic personas — typed `primary`/`secondary`/`tertiary`/`negative`, mix on request or proposed |
+| `/interview-persona` | Interview a persona — exploration or validation mode          |
+| `/extract-insights`  | Extract actionable insights from transcripts (synthetic/real) |
+| `/design-interview`  | Design an interview guide + recruitment plan (survey opt-ins first) for real-user research |
+| `/test-interview-guide` | Pretest a guide against a persona and fix what breaks      |
+| `/design-survey`     | Design a survey questionnaire with an interview opt-in block and a distribution plan (named channels, one link each, target n, dates), ready for any survey tool |
+| `/analyze-survey`    | Analyze survey results: quant summary, themes, insights       |
+| `/derive-personas`   | Derive evidence-based personas from real research patterns    |
+| `/map-frictions`     | Map cognitive frictions across a journey's steps (MFC)        |
+| `/explore-solutions` | Starts from an opportunity: 3–5 alternatives with different mechanisms vs. the current workaround, judged desirable / feasible / viable against the evidence; you choose, it ends with the value proposition of the chosen one |
+| `/clarify-idea`      | Starts from one idea already chosen: sharpen it via one-question-at-a-time brainstorming; names its parent opportunity (and the exploration it came from) or declares none |
+| `/write-spec`        | Draft an evidence-grounded spec: journey, stories, criteria   |
+| `/critique-spec`     | Persona panel critiques a spec/PRD, with synthesis            |
+| `/slice-feature`     | Turn a spec's hypothesis into an Exposure Plan                |
+| `/review-evidence`   | Weekly sweep: new evidence vs. beliefs, drift report, corrections log |
+
+## Knowledge skills
+
+Model-invoked — the agent loads them automatically when the topic matches.
+
+| Skill                  | Knowledge it carries                                              |
+| ---------------------- | ----------------------------------------------------------------- |
+| `opportunity-framing`  | Opportunity vs. solution vs. outcome, signals vs. proof, research agenda, the OST as files |
+| `solution-exploration` | Real alternative vs. variation, the workaround as baseline, the desirable / feasible / viable filter and who owns each judgment, the value proposition, the solutions file |
+| `secondary-research`   | Provenance discipline, source hierarchy, lanes, belief mapping    |
+| `synthetic-personas`   | Archetype principles, persona structure, the four persona types, diversity requirements |
+| `synthetic-interviews` | In-character interview roleplay; exploration vs. validation modes |
+| `insight-extraction`   | Focus areas, grounding rules, insight quality bar                 |
+| `interview-guides`     | Discussion-guide design: goals → questions, funnel, non-leading; pretesting |
+| `survey-design`        | Questionnaire craft, wording bias, scales, results analysis       |
+| `cognitive-frictions`  | The MFC lens: four friction categories, severity, opportunity bar |
+| `feature-specs`        | Spec structure: journey, stories, criteria, hypothesis, risk-tagged assumptions |
+| `persona-critique`     | In-character document reviews and panel synthesis                 |
+| `exposure-plans`       | Build ≠ reveal, belief decomposition, level design, validations   |
+
+## File conventions
+
+Artifacts live in your repo:
+
+```
+product/
+├── overview.md          # product context, sponsor (internal), tagged + ranked belief registry
+├── corrections.md       # log of human corrections to AI proposals (kept by /review-evidence)
+├── personas/            # one file per persona (synthetic or derived), each with a `type:` — primary / secondary / tertiary / negative
+├── interviews/          # transcripts, synthetic and real
+├── interview-guides/    # guides for real-user interviews
+├── surveys/             # survey questionnaires, each with its distribution plan
+├── insights/            # extracted insights, survey analyses & critique panels
+├── research/            # secondary research & benchmarks
+├── journeys/            # user journeys + cognitive friction maps
+├── opportunities/       # opportunity briefs: problem + segment + signals + research agenda, no solution yet
+├── solutions/           # alternatives compared for one opportunity, and the one chosen (with its value proposition)
+├── ideas/               # clarified idea briefs (each names its parent opportunity, or `none (declared)`, and the exploration it came from)
+├── specs/               # feature specs
+└── exposure-plans/      # exposure plans
+```
+
+`overview.md` is the **single belief registry**: every unverified belief lives there — never in per-opportunity, per-idea, or per-spec lists — tagged by scope (`[product]`, `[opportunity: {slug}]`, or `[feature: {slug}]`) and risk (`[value]` / `[usability]` / `[feasibility]` / `[viability]`), ranked by impact × uncertainty. Internal products also record their **sponsor**: who funds the product and what they need to see to keep funding it.
+
+The three scopes mirror an **Opportunity Solution Tree**: `overview.md` (outcome + product beliefs) → `opportunities/` (a problem for a segment, framed by `/frame-opportunity`) → `solutions/` (3–5 genuinely different alternatives for that problem, compared against the evidence by `/explore-solutions`; you choose, it recommends) → `ideas/` (the chosen alternative, clarified by `/clarify-idea`) → `specs/` → `exposure-plans/`. Both middle levels are optional — you can take a decided feature straight to `/clarify-idea` — but skipping them is a declared decision: the idea brief records `opportunity: none (declared)` and registers the problem it assumes as a belief, or `solutions explored: no (declared)` when the problem was framed but the idea never competed with alternatives.
+
+As evidence arrives, beliefs in `overview.md` get a status appended on the belief's own line — `— confirmed/contradicted/weakened by [file] (date)` (keywords stay in English, like `source:` values; no status = still unverified). Only evidence from real users confirms; synthetic evidence just makes a belief promising. `/review-evidence`, `/extract-insights`, and `/analyze-survey` propose these annotations — you approve before anything is written.
+
+## License
+
+[CC BY-SA 4.0](../LICENSE) © [Alaimo Labs](https://alaimolabs.com). Use, adapt, and share freely — credit Alaimo Labs and keep derivatives under the same license.

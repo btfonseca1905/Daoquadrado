@@ -1,0 +1,24 @@
+---
+name: extract-insights
+description: Extract actionable product insights from one or more interview transcripts (synthetic or real)
+argument-hint: "[transcript file(s) or persona name; defaults to the latest interview]"
+disable-model-invocation: true
+---
+
+# /extract-insights
+
+Extract insights from interview transcripts, following the `insight-extraction` skill.
+
+Input: $ARGUMENTS
+
+## Workflow
+
+1. **Resolve sources.** If files or a persona were named, use those transcripts from `product/interviews/`. With no arguments, use the most recent transcript — or, if the current conversation contains a just-finished interview, use that directly. Real-interview transcripts work too: pasted text or a file path anywhere on disk. When a real transcript lives outside `product/interviews/`, offer to archive a copy there as `{YYYY-MM-DD-HHMM}-{interviewee-slug}.md` with a `source: real` header, so the whole interview corpus stays in one place.
+
+2. **Extract** 3–5 insights per the `insight-extraction` skill: grounded in quotes, actionable, quantified when possible, prioritized by impact, in the transcript's language.
+
+3. **Cross-interview synthesis.** When multiple transcripts are involved, flag insights that recur across interviewees.
+
+4. **Save** to `product/insights/{YYYY-MM-DD-HHMM}-{slug}.md` with a header listing sources and `source: synthetic` or `source: real` (mixed corpora list both per source). For synthetic sources, include the one-time reminder that synthetic insights are hypotheses to verify with real users.
+
+5. **Contrast against the overview's beliefs.** Read the unverified beliefs in `product/overview.md` (skip silently if the file or section doesn't exist) — every scope alike: `[product]`, `[opportunity: {slug}]`, `[feature: {slug}]`. If an insight confirms or contradicts one, say so in one line, citing the insight, and offer to annotate the belief on its own line in the overview: `— confirmed/contradicted/weakened by [insights file] (date)` (status keywords stay in English; no status = still unverified). Only real evidence confirms: insights from `source: real` transcripts can earn `confirmed` or `contradicted`; synthetic insights only signal — call the belief promising in conversation, or propose at most `weakened` when they contradict it, never `confirmed`. Nothing is written without the user's approval.

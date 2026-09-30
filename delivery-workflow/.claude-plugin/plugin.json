@@ -1,0 +1,8 @@
+{
+  "name": "delivery-workflow",
+  "displayName": "Delivery Workflow",
+  "version": "1.0.0",
+  "description": "Skills genéricas de entrega de software: story, spec, plan, execute e bug. Independentes de qualquer ferramenta ou projeto.",
+  "author": { "name": "btfonseca1905" },
+  "keywords": ["delivery", "user-story", "spec", "plan", "bug"]
+}
