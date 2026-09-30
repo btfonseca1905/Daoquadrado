@@ -1,0 +1,9 @@
+{
+  "name": "dq",
+  "displayName": "Daoquadrado Skills",
+  "version": "2.0.0",
+  "license": "CC-BY-SA-4.0",
+  "description": "38 skills: entrega de software (story, spec, plan, execute, bug) e produto AI-First (personas, entrevistas, insights, hipóteses, planos de exposição).",
+  "author": { "name": "btfonseca1905" },
+  "keywords": ["delivery", "product-management", "discovery", "skills"]
+}
