@@ -1,18 +1,47 @@
 ---
 name: story
-description: Entrevista interativa para criar histórias de usuário bem estruturadas. Segue o workflow oficial e sempre atualizado do MCP gf7-delivery-mcp.
+description: Entrevista interativa para criar histórias de usuário bem estruturadas, com critérios de aceite. Use ao transformar uma ideia, demanda ou card em uma história pronta para desenvolvimento.
 ---
 
-<!-- gerado-por: skills/SETUP.md (gf7-delivery-mcp) — atalho fino, seguro para sobrescrever em atualizações -->
+# /story — Criar história de usuário
 
-# /story — Entrevista interativa para criar histórias de usuário bem estruturadas
+Alvo (card/Issue/ideia/argumentos): **$ARGUMENTS**
 
-Alvo (card/Issue/argumentos): **$ARGUMENTS**
+## Processo
 
-## Instruções obrigatórias
+1. Se houver um card, Issue ou documento em **$ARGUMENTS**, leia-o antes de perguntar qualquer coisa. Não pergunte o que já está escrito lá.
+2. Entreviste o usuário **uma pergunta por vez**, preferindo múltipla escolha quando possível. Cubra:
+   - **Quem**: persona/papel que se beneficia.
+   - **O quê**: a capacidade desejada.
+   - **Por quê**: o valor ou problema resolvido.
+   - **Contexto**: fluxo atual, restrições, dependências, o que está fora de escopo.
+3. Resuma o entendimento em 2–3 frases e peça confirmação antes de redigir.
+4. Redija a história no formato abaixo e peça revisão. Ajuste até o usuário aprovar.
 
-1. Chame a tool do MCP para carregar o workflow oficial **agora**:
-   `mcp__gf7-delivery-mcp__tool_read_knowledge_document(filepath="workflows/story_wizard_workflow.md")`
-2. O documento retornado é a **única fonte da verdade** deste comando. Siga os passos dele na ordem exata, aplicando **$ARGUMENTS** onde o workflow referenciar o card/Issue alvo.
-3. **Nunca** use uma versão em cache, resumida ou lembrada deste workflow — ele é atualizado com frequência no MCP e só a leitura no momento da invocação garante a versão vigente.
-4. Se a chamada da tool falhar (MCP desconectado, sem permissão, arquivo inexistente), informe o erro ao usuário e pare — não improvise um processo alternativo.
+## Formato de saída
+
+```markdown
+# <Título curto e orientado a valor>
+
+**Como** <persona>, **quero** <capacidade>, **para** <benefício>.
+
+## Contexto
+<Problema, cenário atual, links relevantes>
+
+## Critérios de aceite
+- [ ] Dado <contexto>, quando <ação>, então <resultado observável>
+- [ ] ...
+
+## Fora de escopo
+- ...
+
+## Perguntas em aberto
+- ...
+```
+
+## Qualidade
+
+- A história deve ser pequena o bastante para ser entregue em uma iteração; se não for, proponha dividi-la.
+- Cada critério de aceite precisa ser verificável (sem "rápido" ou "amigável" sem métrica).
+- Não invente requisitos: o que for incerto vai em "Perguntas em aberto".
+- Salve/publique o resultado onde o usuário indicar (arquivo, Issue, card). Se não indicou, pergunte.

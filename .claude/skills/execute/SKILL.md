@@ -1,18 +1,32 @@
 ---
 name: execute
-description: Executa a implementação do plano técnico aprovado. Segue o workflow oficial e sempre atualizado do MCP gf7-delivery-mcp.
+description: Executa a implementação de um plano técnico aprovado, tarefa por tarefa, verificando cada passo com testes antes de declarar conclusão.
 ---
 
-<!-- gerado-por: skills/SETUP.md (gf7-delivery-mcp) — atalho fino, seguro para sobrescrever em atualizações -->
+# /execute — Executar plano aprovado
 
-# /execute — Executa a implementação do plano técnico aprovado
+Alvo (card/Issue/plano/argumentos): **$ARGUMENTS**
 
-Alvo (card/Issue/argumentos): **$ARGUMENTS**
+## Processo
 
-## Instruções obrigatórias
+1. Leia o plano (e a spec) em **$ARGUMENTS**. Se não houver plano aprovado, pare e sugira rodar `/plan`.
+2. Crie uma lista de tarefas a partir do plano e trabalhe **uma por vez**, na ordem.
+3. Para cada tarefa:
+   - Implemente exatamente o que o plano descreve, seguindo os padrões do código existente.
+   - Rode a verificação definida (teste, build, lint) e leia a saída real.
+   - Só marque a tarefa como concluída se a verificação passar.
+4. Se algo no plano se mostrar errado ou incompleto, **pare e informe** o usuário com a evidência; não improvise mudanças de escopo em silêncio.
+5. Ao terminar, rode a suíte de testes relevante e confirme cada critério de aceite.
 
-1. Chame a tool do MCP para carregar o workflow oficial **agora**:
-   `mcp__gf7-delivery-mcp__tool_read_knowledge_document(filepath="workflows/execute_plan_workflow.md")`
-2. O documento retornado é a **única fonte da verdade** deste comando. Siga os passos dele na ordem exata, aplicando **$ARGUMENTS** onde o workflow referenciar o card/Issue alvo.
-3. **Nunca** use uma versão em cache, resumida ou lembrada deste workflow — ele é atualizado com frequência no MCP e só a leitura no momento da invocação garante a versão vigente.
-4. Se a chamada da tool falhar (MCP desconectado, sem permissão, arquivo inexistente), informe o erro ao usuário e pare — não improvise um processo alternativo.
+## Regras
+
+- Faça apenas o que o plano pede; sugestões extras vão para o relatório final, não para o código.
+- Não faça commit, push ou ações externas sem o usuário ter pedido.
+- Relate resultados com fidelidade: se um teste falhou ou uma etapa foi pulada, diga isso com a saída.
+
+## Relatório final
+
+- O que foi implementado (por tarefa).
+- Saída dos testes/verificações executados.
+- Desvios do plano e o motivo.
+- Pendências e pontos de atenção.

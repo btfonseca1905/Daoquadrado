@@ -1,18 +1,52 @@
 ---
 name: plan
-description: Cria o plano de execução técnico de um card. Segue o workflow oficial e sempre atualizado do MCP gf7-delivery-mcp.
+description: Cria o plano de execução técnico de um card, Issue ou spec, dividido em tarefas pequenas, ordenadas e verificáveis. Use antes de implementar.
 ---
 
-<!-- gerado-por: skills/SETUP.md (gf7-delivery-mcp) — atalho fino, seguro para sobrescrever em atualizações -->
+# /plan — Criar plano de execução
 
-# /plan — Cria o plano de execução técnico de um card
+Alvo (card/Issue/spec/argumentos): **$ARGUMENTS**
 
-Alvo (card/Issue/argumentos): **$ARGUMENTS**
+## Processo
 
-## Instruções obrigatórias
+1. Leia o item e a spec associada em **$ARGUMENTS**. Se não houver spec e a mudança for não trivial, sugira rodar `/spec` primeiro.
+2. Explore o código para identificar arquivos, funções, testes e padrões que serão tocados. Cite caminhos reais.
+3. Quebre o trabalho em tarefas **pequenas** (idealmente de 2 a 15 minutos cada), ordenadas por dependência, cada uma com resultado verificável.
+4. Planeje testes junto de cada tarefa (teste primeiro quando fizer sentido).
+5. Apresente o plano ao usuário e ajuste até a aprovação. **Não implemente** nesta etapa.
 
-1. Chame a tool do MCP para carregar o workflow oficial **agora**:
-   `mcp__gf7-delivery-mcp__tool_read_knowledge_document(filepath="workflows/create_plan_workflow.md")`
-2. O documento retornado é a **única fonte da verdade** deste comando. Siga os passos dele na ordem exata, aplicando **$ARGUMENTS** onde o workflow referenciar o card/Issue alvo.
-3. **Nunca** use uma versão em cache, resumida ou lembrada deste workflow — ele é atualizado com frequência no MCP e só a leitura no momento da invocação garante a versão vigente.
-4. Se a chamada da tool falhar (MCP desconectado, sem permissão, arquivo inexistente), informe o erro ao usuário e pare — não improvise um processo alternativo.
+## Formato de saída
+
+```markdown
+# Plano: <título>
+
+## Resumo
+<Abordagem em 2–4 frases>
+
+## Arquivos afetados
+- `caminho/arquivo` — o que muda
+
+## Tarefas
+1. **<Tarefa>**
+   - Arquivos: ...
+   - Passos: ...
+   - Verificação: <comando ou teste e resultado esperado>
+2. ...
+
+## Testes
+...
+
+## Riscos e mitigação
+...
+
+## Definição de pronto
+- [ ] Critérios de aceite atendidos
+- [ ] Testes passando
+- [ ] ...
+```
+
+## Qualidade
+
+- Sem placeholders vagos ("tratar erros", "ajustar depois"): diga exatamente o quê.
+- Cada tarefa deve poder ser concluída e verificada isoladamente.
+- Inclua como reverter ou mitigar se a mudança for arriscada (migração, dados, API pública).

@@ -1,18 +1,55 @@
 ---
 name: bug
-description: Entrevista interativa para documentar bugs completos e reproduzíveis. Segue o workflow oficial e sempre atualizado do MCP gf7-delivery-mcp.
+description: Entrevista interativa para documentar bugs completos e reproduzíveis. Use quando o usuário relatar um defeito e precisar de um registro claro para investigação ou correção.
 ---
 
-<!-- gerado-por: skills/SETUP.md (gf7-delivery-mcp) — atalho fino, seguro para sobrescrever em atualizações -->
+# /bug — Documentar bug reproduzível
 
-# /bug — Entrevista interativa para documentar bugs completos e reproduzíveis
+Alvo (card/Issue/descrição/argumentos): **$ARGUMENTS**
 
-Alvo (card/Issue/argumentos): **$ARGUMENTS**
+## Processo
 
-## Instruções obrigatórias
+1. Leia o que já existe em **$ARGUMENTS** (Issue, card, log, descrição) e, se útil, o código/logs relacionados. Não repita perguntas já respondidas.
+2. Entreviste o usuário **uma pergunta por vez** até ter:
+   - **Resumo**: uma frase do que está errado.
+   - **Passos para reproduzir**: numerados, determinísticos, a partir de um estado inicial conhecido.
+   - **Resultado esperado** vs. **resultado atual**.
+   - **Ambiente**: versão, SO/navegador, configuração, dados relevantes.
+   - **Frequência**: sempre, intermitente, somente em certas condições.
+   - **Evidências**: mensagens de erro, stack traces, logs, capturas de tela.
+   - **Impacto**: quem é afetado e a gravidade (bloqueante, alta, média, baixa).
+   - **Regressão**: quando começou a ocorrer / última versão que funcionava, se conhecido.
+3. Se possível, tente reproduzir o bug você mesmo e registre o resultado.
+4. Redija o relatório no formato abaixo e peça confirmação.
 
-1. Chame a tool do MCP para carregar o workflow oficial **agora**:
-   `mcp__gf7-delivery-mcp__tool_read_knowledge_document(filepath="workflows/bug_wizard_workflow.md")`
-2. O documento retornado é a **única fonte da verdade** deste comando. Siga os passos dele na ordem exata, aplicando **$ARGUMENTS** onde o workflow referenciar o card/Issue alvo.
-3. **Nunca** use uma versão em cache, resumida ou lembrada deste workflow — ele é atualizado com frequência no MCP e só a leitura no momento da invocação garante a versão vigente.
-4. Se a chamada da tool falhar (MCP desconectado, sem permissão, arquivo inexistente), informe o erro ao usuário e pare — não improvise um processo alternativo.
+## Formato de saída
+
+```markdown
+# [Bug] <resumo curto>
+
+**Gravidade:** <bloqueante|alta|média|baixa>  **Frequência:** <...>
+
+## Passos para reproduzir
+1. ...
+
+## Resultado esperado
+...
+
+## Resultado atual
+...
+
+## Ambiente
+...
+
+## Evidências
+...
+
+## Hipóteses / notas de investigação
+<Somente o que for sustentado por evidências; marque suposições como tal>
+```
+
+## Qualidade
+
+- Um terceiro deve conseguir reproduzir apenas lendo o relatório.
+- Separe fato de hipótese. Não proponha correção sem evidência; se propuser, marque como hipótese.
+- Um relatório = um bug. Se surgirem outros problemas, sugira relatórios separados.
