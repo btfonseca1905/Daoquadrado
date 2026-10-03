@@ -7,26 +7,45 @@ disable-model-invocation: true
 
 # /generate-personas
 
-Create synthetic user personas for the current product, following the `synthetic-personas` skill.
-
-Input: $ARGUMENTS
+Atenção!
+Faça um Passo de cada vez, e dentro de cada Passo, faça uma pergunta por vez.
 
 ## Workflow
 
-1. **Load product context.** Read `product/overview.md` if it exists; otherwise look for a README or similar product description. If no product context exists, suggest `/start-product` first (it also captures the unverified beliefs later stages test); if the user prefers to continue here, ask for the product name, a short description, and target users — then offer to save that as `product/overview.md`.
+1. **Apresente o contexto do projeto** 
+Comece explicando para o Agente o que você está desenvolvendo. Não é necessário preencher um formulário perfeito; você pode descrever o projeto naturalmente.
+Por exemplo:
+Estou desenvolvendo uma plataforma de gestão financeira para pequenos empresários. O público principal são donos de pequenas empresas com pouco conhecimento financeiro. Estamos na fase de protótipo e queremos entender quais funcionalidades seriam mais importantes para esse público.
+O Agente procurará entender principalmente: setor de atuação, público-alvo, problema que o projeto pretende resolver, objetivos, estágio atual do projeto, aprendizados já obtidos e próximos passos.
+Quanto mais contexto você fornecer, mais consistente será a persona criada.
 
-2. **Read existing personas** in `product/personas/` to avoid duplicates and to fill diversity gaps (the new set should complement, not repeat — including the type mix: note which types the existing set already covers). An existing persona without a `type:` line was created before the field existed: propose a type for it from its content and offer to write it in — with the user's approval, never silently.
+2. **Complete as informações que estiverem faltando** 
+Depois da descrição inicial, o Agente pode aprofundar aspectos importantes do projeto.
+Por exemplo, ele pode explorar questões como:
+Quem exatamente você quer representar com a persona?
+A pessoa já utiliza alguma solução concorrente?
+Qual problema ela enfrenta atualmente?
+Quem participa da decisão de compra?
+Existe algum recorte específico de idade, profissão, renda ou localização?
+O produto é B2B ou B2C?
+Você não precisa necessariamente conhecer todas as respostas. Quando algum dado não existir, pode informar que se trata de uma hipótese a ser explorada.
+Essa distinção é importante: uma persona sintética é especialmente útil para formular hipóteses, mas não substitui entrevistas ou pesquisas com usuários reais.
 
-3. **Determine count, mix, and focus.** If the arguments name a mix ("2 primary, 1 tertiary, 1 negative"), honor it to the letter — that count, those types. If they don't, **propose** a mix and get it confirmed before generating: derive it from the `mode:` line of the overview and the segment — a default of 4 (2 `primary`, 1 `secondary` or `tertiary`, 1 `negative`), with a `tertiary` whenever someone other than the user decides, pays, or approves (internal products: the sponsor; B2B: the buyer or admin). Show the proposal in one line ("2 primary, 1 tertiary, 1 negative — ok?") and wait for the answer. Never generate a set without at least one `primary` and one `negative`; if the requested mix lacks one, say so in one line and follow the request anyway. If a segment or focus was named, honor it.
+3. **Solicite a criação da persona** 
+Depois que houver contexto suficiente, peça algo como:
+Crie uma persona sintética representando meu público principal.
+O Agente estruturará a persona considerando dimensões como dados demográficos, profissão, renda, localização, características psicográficas, valores, estilo de vida, objetivos, dores, frustrações, comportamento de compra, uso de tecnologia, redes sociais, jornada de decisão, motivadores, medos e mapa de empatia.
+A persona também pode incluir uma pequena narrativa para tornar o perfil mais concreto.
 
-4. **Generate the personas** per the `synthetic-personas` skill: archetype principles, full structure with the `type:` field, diversity requirements, in the language of the product context. A `negative` persona is a scope boundary, not a caricature: someone who looks like a user and is left out on purpose.
+4. **Revise a persona criada** 
+Leia o perfil e verifique se ele faz sentido para o projeto.
+Você pode corrigir qualquer hipótese. Por exemplo:
+A renda está muito alta. Esse público normalmente ganha entre R$ 4 mil e R$ 7 mil.
+Ou:
+Essa persona parece muito confortável com tecnologia. Quero representar alguém que tenha dificuldade com ferramentas digitais.
+Ou ainda:
+Crie uma versão mais conservadora dessa persona.
+O Agente pode então recalibrar o perfil.
 
-5. **Present the set** briefly — name, role, **type**, one-line perspective each — and ask for the review with two explicit questions per persona: does this persona belong to the product? Is the type the right one? A type change is applied on the spot. A discard is recorded in `product/corrections.md` with its reason (dated entry — artifact, what the AI proposed, what the human decided, why; create the file on first use). **Discard for not belonging to the product, never for taste or because "it looks like a stereotype"; if every persona belongs, none is discarded.**
-
-6. **Save** each persona to `product/personas/{name-slug}.md`, with the type written literally as `- **Type:** {value}` right after the role line (label and value in English, whatever the language of the rest).
-
-Close by suggesting next steps in one line: interview a persona (`/interview-persona`) or critique a spec with them (`/critique-spec`).
-
-## Language
-
-Conversation and the saved personas in the language of the conversation. The `type:` values (`primary`, `secondary`, `tertiary`, `negative`) are fixed English tokens in every language, like `source:` values.
+5. **Salve** 
+O  Agente deve criar um perfil da persona pronto para ser copiado e criado um arquivo .md
