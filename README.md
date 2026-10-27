@@ -17,7 +17,7 @@ Coleção unificada de 10 Skills de IA da **Bruna Fonseca | b-a.BA Educação Co
 | `execute` | Implementa o plano técnico aprovado |
 | `bug` | Entrevista para documentar bugs reproduzíveis |
 
-> **Atenção:** `story`, `spec`, `plan`, `execute` e `bug` dependem do MCP **gf7-delivery-mcp** conectado na sua IA. Sem ele, elas informam o erro e param. As outras cinco funcionam sozinhas.
+> `story`, `spec`, `plan`, `execute` e `bug` seguem o fluxo de entrega do Base Sender (GitHub Issues/Projects e `gh`). Os artefatos de spec e plano são gravados em `artefatos/<card_id>/`.
 
 ## Pré-requisitos
 
