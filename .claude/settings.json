@@ -1,8 +1,0 @@
-{
-  "extraKnownMarketplaces": {
-    "daoquadrado": {
-      "source": { "source": "github", "repo": "btfonseca1905/Daoquadrado" }
-    }
-  },
-  "enabledPlugins": { "dq@daoquadrado": true }
-}

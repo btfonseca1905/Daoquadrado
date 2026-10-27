@@ -1,0 +1,4 @@
+interface:
+  display_name: "Validação UX com Persona Sintética"
+  short_description: "Navega por protótipos e avalia com persona sintética"
+  default_prompt: "Valide meu protótipo público usando a persona em .md e gere feedback visual."

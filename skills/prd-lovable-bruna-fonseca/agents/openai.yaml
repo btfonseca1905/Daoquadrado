@@ -1,0 +1,4 @@
+interface:
+  display_name: "PRD para Lovable by Bruna Fonseca"
+  short_description: "Discovery guiado, PRD e prompt para Lovable"
+  default_prompt: "Vamos transformar minha ideia em um PRD e prompt para Lovable, uma pergunta por vez."

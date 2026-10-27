@@ -1,0 +1,4 @@
+interface:
+  display_name: "Roadmap com Lean Inception by Bruna Fonseca"
+  short_description: "Classifica épicos, organiza ondas e planeja quarters"
+  default_prompt: "Vamos montar meu roadmap com Lean Inception. Faça o Passo 1 e avance um passo por vez."

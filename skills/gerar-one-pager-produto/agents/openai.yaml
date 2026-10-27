@@ -1,0 +1,4 @@
+interface:
+  display_name: "One-Pager de Produto by Bruna Fonseca"
+  short_description: "Entrevista guiada e documento de produto em Markdown"
+  default_prompt: "Vamos criar meu One-Pager de Produto. Faça uma pergunta por vez."

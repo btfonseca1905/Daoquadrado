@@ -1,0 +1,5 @@
+interface:
+  display_name: "Métricas HEART by Bruna Fonseca"
+  short_description: "Construa métricas e dashboard executivo com HEART"
+  brand_color: "#EB3B92"
+  default_prompt: "Use $metricas-heart-produto para definir as métricas do meu produto com HEART. Comece pela primeira pergunta e conduza as cinco etapas."
