@@ -1,5 +1,5 @@
 ---
-name: gerar-one-pager-produto
+name: one-pager-produto
 description: Conduzir entrevista guiada para elaborar um One-Pager de Produto e entregá-lo como arquivo Markdown (.md). Usar quando a pessoa pedir um one-pager, ficha executiva, síntese estruturada ou apresentação de uma página de produto a partir de ideia, pesquisa ou solução existente.
 ---
 

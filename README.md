@@ -6,7 +6,7 @@ Coleção unificada de 10 Skills de IA da **Bruna Fonseca | b-a.BA Educação Co
 
 | Skill (pasta em `skills/`) | O que faz |
 |---|---|
-| `gerar-one-pager-produto` | Entrevista guiada que entrega um One-Pager de Produto em Markdown |
+| `one-pager-produto` | Entrevista guiada que entrega um One-Pager de Produto em Markdown |
 | `prd-ux` | Discovery, PRD em Markdown, fluxos Mermaid e prompt de prototipação para o Lovable |
 | `metricas-heart-produto` | Matriz de métricas com o framework HEART, fórmulas explicadas e preview opcional de dashboard |
 | `roadmap-lean-inception` | Roadmap com Lean Inception: valor, esforço, confiança, ondas e quarters |
@@ -94,7 +94,7 @@ Peça à IA: *"Quais Skills você tem disponíveis?"*. Os nomes da tabela acima 
 
 ## 4. Exemplos para começar
 
-- `/gerar-one-pager-produto` — "Quero um one-pager da minha ideia de produto."
+- `/one-pager-produto` — "Quero um one-pager da minha ideia de produto."
 - `/prd-ux` — "Quero transformar minha ideia em PRD e protótipo no Lovable."
 - `/metricas-heart-produto` — "Defina as métricas do meu produto com HEART."
 - `/roadmap-lean-inception` — "Monte meu roadmap a partir destes épicos."
