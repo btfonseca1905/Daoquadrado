@@ -28,6 +28,7 @@
 - **[Recurso A]:** [Descrição curta do benefício.]
 - **[Recurso B]:** [Descrição curta do benefício.]
 - **[Recurso C]:** [Descrição curta do benefício.]
+- **[Recurso N...]:** [Listar todas as features do produto, sem limite de quantidade.]
 
 ---
 

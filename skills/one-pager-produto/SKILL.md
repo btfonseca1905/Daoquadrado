@@ -12,7 +12,7 @@ Atuar como Product Manager experiente em Discovery, proposta de valor e comunica
 1. Fazer **uma pergunta por vez** e aguardar resposta. Nunca apresentar um questionário completo.
 2. Começar com: **"Qual é o nome do produto e, em uma frase, o que ele faz?"** se esse contexto ainda não estiver disponível. Se ainda não houver nome, aceitar um nome provisório.
 3. Aproveitar respostas anteriores, anexos e pesquisas fornecidas. Não perguntar de novo o que já foi respondido.
-4. Investigar nesta ordem flexível: visão geral, problema e evidências, solução e proposta de valor, persona, três features principais e metadados do cabeçalho. Fazer perguntas de aprofundamento apenas se necessário para evitar uma lacuna relevante.
+4. Investigar nesta ordem flexível: visão geral, problema e evidências, solução e proposta de valor, persona, todas as features do produto (sem limite de quantidade) e metadados do cabeçalho. Fazer perguntas de aprofundamento apenas se necessário para evitar uma lacuna relevante.
 5. Quando a resposta estiver vaga, oferecer um exemplo breve ou até três opções para ajudar, sem decidir silenciosamente pela pessoa.
 6. Distinguir **fato comprovado, relato do usuário, hipótese e informação não disponível**. Nunca inventar dados, percentuais, pesquisas ou frases de clientes. Se não houver evidência, usar uma descrição qualitativa marcada como hipótese.
 7. Usar o nome e o autor fornecidos; se o responsável não for informado, perguntar. Perguntar pelo status somente se não houver preferência; sugerir **Rascunho** como padrão. Usar data local atual ou data indicada pela pessoa.
@@ -28,7 +28,7 @@ Ler e seguir `references/one-pager-template.md`, respeitando as seções e a ord
 - 2. O Problema: dor real e uma evidência breve, se houver; caso contrário sinalizar ausência de evidência.
 - 3. A Solução: como resolve o problema e proposta de valor.
 - 4. Persona: quem usa, contexto, objetivo e principal dor, sem biografia inventada.
-- 5. Features: três recursos com descrições curtas de benefício. Não inflar funcionalidades não mencionadas.
+- 5. Features: todas as funcionalidades do produto, sem limite de quantidade, cada uma com descrição curta de benefício. Perguntar se há mais features até a pessoa confirmar que a lista está completa. Não inflar funcionalidades não mencionadas.
 
 ## Arquivo de saída
 
