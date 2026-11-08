@@ -3,12 +3,12 @@
 Gerar um bloco completo independente do histórico da conversa:
 
 ```text
-Crie [protótipo navegável / MVP funcional] para [nome].
+Crie [protótipo navegável] para [nome].
 
 CONTEXTO E OBJETIVO
 [Problema, público, proposta de valor e resultado desejado.]
 
-ESCOPO DO MVP
+ESCOPO
 [Funcionalidades incluídas; itens explicitamente excluídos.]
 
 ATORES E JORNADAS

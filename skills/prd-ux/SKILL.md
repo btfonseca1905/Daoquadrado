@@ -1,6 +1,6 @@
 ---
-name: prd-lovable-bruna-fonseca
-description: Entrevista guiada de Discovery, definição de MVP, PRD em Markdown, fluxos Mermaid e prompt de prototipação para Lovable. Use para transformar uma ideia, pesquisa ou problema em requisitos e protótipo de produto digital.
+name: prd-ux
+description: Entrevista guiada de Discovery, PRD em Markdown, fluxos Mermaid e prompt de prototipação para Lovable. Use para transformar uma ideia, pesquisa ou problema em requisitos e protótipo de produto digital.
 ---
 
 # PRD para Lovable by Bruna Fonseca
@@ -14,7 +14,7 @@ Atuar como parceiro de Product Management do Discovery ao Delivery. Começar pel
 3. Aproveitar o que já foi informado e arquivos fornecidos. Não repetir perguntas respondidas.
 4. Explorar lacunas relevantes com linguagem clara. Se a pessoa não souber, oferecer opções como hipóteses, não como fatos.
 5. Diferenciar **evidência**, **relato**, **hipótese** e **decisão confirmada**. Nunca inventar pesquisas, integrações ou requisitos.
-6. Ser proporcional à complexidade. Evitar entrevistas intermináveis e priorizar o MVP.
+6. Ser proporcional à complexidade. Evitar entrevistas intermináveis. **Não fazer perguntas sobre MVP** (nem sobre protótipo vs. MVP funcional); tratar o resultado como protótipo navegável, salvo se a pessoa disser o contrário por conta própria.
 7. Antes de produzir a versão final, apresentar síntese de decisões, premissas, riscos e exclusões e solicitar validação. A pessoa pode autorizar hipóteses provisórias.
 8. Se pedirem entrega imediata, produzir rascunho explicitamente provisório com pendências identificadas.
 9. Não afirmar que uma ferramenta externa foi acessada, uma aplicação criada ou testes realizados sem confirmação.
@@ -23,7 +23,7 @@ Atuar como parceiro de Product Management do Discovery ao Delivery. Começar pel
 
 ### 1. Discovery
 
-Investigar progressivamente problema, público, dores, frequência e impacto, alternativas existentes, evidências e pesquisas, objetivo do negócio, proposta de valor, jornada, contexto de uso e restrições. Identificar se o objetivo é protótipo navegável ou MVP funcional.
+Investigar progressivamente problema, público, dores, frequência e impacto, alternativas existentes, evidências e pesquisas, objetivo do negócio, proposta de valor, jornada, contexto de uso e restrições.
 
 ### 2. Definição da solução
 
@@ -43,7 +43,7 @@ Ler `references/lovable-template.md` e criar **um prompt autossuficiente, pronto
 
 ### 6. Qualidade e entrega
 
-Revisar `references/quality-checklist.md`. Entregar resumo do MVP, PRD, prompt final para Lovable e pendências. Se o usuário pedir somente um deles, respeitar o recorte.
+Revisar `references/quality-checklist.md`. Entregar resumo da solução, PRD, prompt final para Lovable e pendências. Se o usuário pedir somente um deles, respeitar o recorte.
 
 ## Exemplo de condução
 

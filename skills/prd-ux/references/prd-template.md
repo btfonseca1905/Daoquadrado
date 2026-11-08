@@ -7,7 +7,7 @@ Preencher com informações conhecidas. Marcar `[Hipótese]` e `[Pendente]`. Omi
 3. **Público e personas:** necessidades, situações de uso, atores e permissões.
 4. **Proposta de valor:** benefício e diferencial a validar.
 5. **Objetivos e métricas:** resultado esperado e como medi-lo.
-6. **Escopo MVP:** incluído, excluído e futuro; justificativa de prioridade.
+6. **Escopo:** incluído, excluído e futuro; justificativa de prioridade.
 7. **Jornadas e fluxos:** passos, decisões, exceções; Mermaid quando útil.
 8. **Telas e navegação:** finalidade, componentes, ação principal, estados.
 9. **Requisitos funcionais:** ID, descrição, prioridade, dependências.
