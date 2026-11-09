@@ -8,7 +8,6 @@ Coleção unificada de 10 Skills de IA da **Bruna Fonseca | b-a.BA Educação Co
 |---|---|
 | `one-pager-produto` | Entrevista guiada que entrega um One-Pager de Produto em Markdown |
 | `metricas-heart-produto` | Matriz de métricas com o framework HEART, fórmulas explicadas e preview opcional de dashboard |
-| `roadmap-lean-inception` | Roadmap com Lean Inception: valor, esforço, confiança, ondas e quarters |
 | `story` | Entrevista para criar histórias de usuário com critérios de aceite |
 | `spec` | Especificação técnica de um card |
 | `plan` | Plano de execução técnico de um card |
