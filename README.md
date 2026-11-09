@@ -7,10 +7,8 @@ Coleção unificada de 10 Skills de IA da **Bruna Fonseca | b-a.BA Educação Co
 | Skill (pasta em `skills/`) | O que faz |
 |---|---|
 | `one-pager-produto` | Entrevista guiada que entrega um One-Pager de Produto em Markdown |
-| `prd-ux` | Discovery, PRD em Markdown, fluxos Mermaid e prompt de prototipação para o Lovable |
 | `metricas-heart-produto` | Matriz de métricas com o framework HEART, fórmulas explicadas e preview opcional de dashboard |
 | `roadmap-lean-inception` | Roadmap com Lean Inception: valor, esforço, confiança, ondas e quarters |
-| `validar-prototipo-persona` | Valida um protótipo web navegando com uma persona sintética (.md) e gera relatório de UX |
 | `story` | Entrevista para criar histórias de usuário com critérios de aceite |
 | `spec` | Especificação técnica de um card |
 | `plan` | Plano de execução técnico de um card |
